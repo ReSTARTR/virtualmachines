@@ -17,7 +17,7 @@
     "boot_wait": "10s",
     "boot_command": [
       "<esc><wait>",
-      "linux ks=http://{{.HTTPIP}}:{{.HTTPPort}}/kckstart.cfg",
+      "linux ks=http://{{.HTTPIP}}:{{.HTTPPort}}/kickstart.cfg",
       "<enter><wait>"
     ]
   }],
