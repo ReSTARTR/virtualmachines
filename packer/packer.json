@@ -1,0 +1,34 @@
+{
+  "variables": {
+    "vm_username": "{{env `VM_USER_NAME`}}",
+    "vm_password": "{{env `VM_USER_PASS`}}"
+  },
+
+  "builders": [{
+    "type": "virtualbox-iso",
+    "guest_os_type": "RedHat_64",
+    "iso_url": "/Users/yoshida/Downloads/CentOS-6.4-x86_64-bin-DVD1to2/CentOS-6.4-x86_64-bin-DVD1.iso",
+    "iso_checksum": "0128cfc7c86072b13ee80dd013e0e5d7",
+    "iso_checksum_type": "md5",
+    "ssh_username": "{{user `vm_username`}}",
+    "ssh_password": "{{user `vm_password`}}",
+    "ssh_wait_timeout": "600s",
+    "http_directory": "./",
+    "boot_wait": "10s",
+    "boot_command": [
+      "<esc><wait>",
+      "linux ks=http://{{.HTTPIP}}:{{.HTTPPort}}/kckstart.cfg",
+      "<enter><wait>"
+    ]
+  }],
+
+  "provisioners": [{
+    "type": "shell",
+    "script": "setup.sh"
+  }],
+
+  "post-processors": [{
+    "type": "vagrant",
+    "output": "centos64.box"
+  }]
+}
