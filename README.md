@@ -1,18 +1,10 @@
-VirtualMachine
+Install Packer
 ----
 
-Create box file
-====
-
 ```
-VM_USER_NAME="vagrant" VM_USER_PASS="vagrant" packer build ./packer/packer.json
-```
-
-Boot the virtual machine
-====
-
-```
-cd vagrant
-vagrant up
-vagrant ssh
+mkdir $HOME/local/packer
+cd $HOME/local/packer
+wget "https://dl.bintray.com/mitchellh/packer/0.5.2_darwin_amd64.zip"
+unzip 0.5.2_darwin_amd64.zip -d packer
+echo "export PATH=$HOME/local/packer/bin:$PATH" > $HOME/.zshrc
 ```
