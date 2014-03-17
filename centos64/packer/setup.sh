@@ -6,11 +6,9 @@ wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/key
 chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant /home/vagrant/.ssh
 
-# rbenv && ruby-build
+# user's ruby
 export RBENV_ROOT=/usr/local/rbenv
 export PATH=${RBENV_ROOT}/bin:$PATH
-rbenv install 2.0.0-p451
-rbenv install 1.9.2-p326
 
 # system ruby
-PREFIX=/usr/local sudo ruby-build 2.0.0-p451 2.0.0-p451
+#PREFIX=/usr/local sudo ruby-build 2.0.0-p451 2.0.0-p451
