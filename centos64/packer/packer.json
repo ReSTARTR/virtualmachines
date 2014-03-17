@@ -12,7 +12,7 @@
     "iso_checksum_type": "md5",
     "ssh_username": "{{user `vm_username`}}",
     "ssh_password": "{{user `vm_password`}}",
-    "ssh_wait_timeout": "600s",
+    "ssh_wait_timeout": "3000s",
     "http_directory": "./",
     "boot_wait": "10s",
     "boot_command": [
@@ -21,6 +21,7 @@
       "<enter><wait>"
     ]
   }],
+
 
   "provisioners": [{
     "type": "shell",
